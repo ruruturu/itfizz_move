@@ -24,15 +24,11 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* ---------- Hero layout ---------- */
-
-/* Tall wrapper: its height is how far the user has to scroll. */
 .hero {
   position: relative;
   height: 400vh;
 }
 
-/* Stays on screen while the wrapper scrolls past (sticky = no JS pinning, no layout work). */
 .hero__pin {
   position: sticky;
   top: 0;
@@ -54,8 +50,6 @@ body {
   pointer-events: none;
   will-change: transform;
 }
-
-/* ---------- Headline ---------- */
 
 .hero__top {
   position: relative;
@@ -80,7 +74,7 @@ body {
 
 .char {
   display: inline-block;
-  color: rgba(255, 255, 255, 0.22); /* dim until the car passes */
+  color: rgba(255, 255, 255, 0.22);
   will-change: transform;
 }
 
@@ -92,13 +86,11 @@ body {
   color: var(--muted);
 }
 
-/* ---------- Road + car ---------- */
-
 .road {
   position: relative;
   align-self: center;
   height: clamp(110px, 24vh, 230px);
-  margin-inline: calc(var(--pad) * -1); /* full-bleed inside padded grid */
+  margin-inline: calc(var(--pad) * -1);
   background: #101216;
   border-block: 1px solid rgba(255, 255, 255, 0.08);
   overflow: hidden;
@@ -124,7 +116,7 @@ body {
   top: 50%;
   left: 0;
   width: clamp(200px, 26vw, 380px);
-  translate: 0 -50%; /* separate from GSAP's transform */
+  translate: 0 -50%;
   will-change: transform;
 }
 
@@ -133,8 +125,6 @@ body {
   width: 100%;
   height: auto;
 }
-
-/* ---------- Stats ---------- */
 
 .stats {
   list-style: none;
@@ -177,8 +167,6 @@ body {
     row-gap: 18px;
   }
 }
-
-/* ---------- After the hero ---------- */
 
 .after {
   min-height: 70vh;
