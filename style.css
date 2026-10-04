@@ -1,184 +1,155 @@
-:root {
-  --bg: #07080b;
-  --fg: #f4f5f7;
-  --muted: #8a8f99;
-  --accent: #ff5a1f;
-  --pad: clamp(16px, 4vw, 56px);
-}
-
-*,
-*::before,
-*::after {
+* {
   box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: auto;
 }
 
 body {
   margin: 0;
-  background: var(--bg);
-  color: var(--fg);
-  font-family: "Space Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
-  -webkit-font-smoothing: antialiased;
+  background: #07080b;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .hero {
-  position: relative;
   height: 400vh;
 }
 
-.hero__pin {
+.inner {
   position: sticky;
   top: 0;
   height: 100vh;
-  height: 100svh;
   overflow: hidden;
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  padding: clamp(24px, 7vh, 72px) var(--pad) clamp(20px, 5vh, 48px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: radial-gradient(circle at 50% 30%, #2a140c, #07080b 60%);
 }
 
-.glow {
-  position: absolute;
-  top: -25%;
-  left: 5%;
-  width: 70vw;
-  height: 70vw;
-  background: radial-gradient(circle, rgba(255, 90, 31, 0.16), transparent 62%);
-  pointer-events: none;
-  will-change: transform;
-}
-
-.hero__top {
-  position: relative;
+.top {
+  padding-top: 6vh;
   text-align: center;
 }
 
-.headline {
+.title {
   margin: 0;
   display: flex;
   justify-content: center;
-  gap: 1.2em;
-  font-size: clamp(0.9rem, 3.6vw, 3.2rem);
-  font-weight: 600;
-  text-transform: uppercase;
-  line-height: 1;
+  font-size: 4vw;
+  font-weight: bold;
 }
 
-.word {
-  display: flex;
-  gap: 0.4em;
+.letter {
+  margin-right: 0.4em;
+  color: #444;
 }
 
-.char {
-  display: inline-block;
-  color: rgba(255, 255, 255, 0.22);
-  will-change: transform;
+.space {
+  width: 0.8em;
 }
 
 .hint {
-  margin: 1.4rem 0 0;
-  font-size: 0.75rem;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: var(--muted);
+  margin-top: 20px;
+  font-size: 14px;
+  color: #888;
 }
 
 .road {
   position: relative;
-  align-self: center;
-  height: clamp(110px, 24vh, 230px);
-  margin-inline: calc(var(--pad) * -1);
-  background: #101216;
-  border-block: 1px solid rgba(255, 255, 255, 0.08);
+  height: 180px;
+  background: #14161a;
   overflow: hidden;
 }
 
-.road__lines {
+.road-lines {
   position: absolute;
-  top: 50%;
+  top: 88px;
   left: 0;
   width: 200%;
   height: 4px;
-  margin-top: -2px;
-  background: repeating-linear-gradient(
-    90deg,
-    rgba(255, 255, 255, 0.35) 0 48px,
-    transparent 48px 112px
-  );
-  will-change: transform;
+  background: repeating-linear-gradient(90deg, #666 0px, #666 50px, transparent 50px, transparent 110px);
 }
 
 .car {
   position: absolute;
   top: 50%;
-  left: 0;
-  width: clamp(200px, 26vw, 380px);
-  translate: 0 -50%;
-  will-change: transform;
+  left: -400px;
+  width: 380px;
+  margin-top: -76px;
 }
 
 .car svg {
   display: block;
   width: 100%;
-  height: auto;
 }
 
 .stats {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: clamp(16px, 3vw, 40px);
+  display: flex;
+  justify-content: space-between;
+  padding: 0 4vw 5vh;
 }
 
 .stat {
-  padding-top: 14px;
-  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  width: 22%;
+  border-top: 1px solid #333;
+  padding-top: 12px;
 }
 
-.stat__value {
+.value {
   margin: 0;
-  font-size: clamp(1.9rem, 4.6vw, 3.6rem);
-  font-weight: 600;
-  line-height: 1;
-  letter-spacing: -0.02em;
-  font-variant-numeric: tabular-nums;
+  font-size: 56px;
+  font-weight: bold;
 }
 
-.pct {
-  color: var(--accent);
+.percent {
+  color: #ff5a1f;
 }
 
-.stat__label {
+.text {
   margin: 10px 0 0;
-  max-width: 24ch;
-  font-size: clamp(0.75rem, 1.1vw, 0.95rem);
-  line-height: 1.4;
-  color: var(--muted);
+  font-size: 15px;
+  color: #999;
 }
 
-@media (max-width: 700px) {
-  .stats {
-    grid-template-columns: repeat(2, 1fr);
-    row-gap: 18px;
-  }
-}
-
-.after {
-  min-height: 70vh;
-  display: grid;
-  place-items: center;
-  padding: 12vh 24px;
-  text-align: center;
-  color: var(--muted);
+.footer {
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #888;
   background: #0b0d11;
 }
 
-.after p {
-  margin: 0;
-  letter-spacing: 0.04em;
+@media (max-width: 700px) {
+  .title {
+    font-size: 5vw;
+  }
+
+  .road {
+    height: 120px;
+  }
+
+  .road-lines {
+    top: 58px;
+  }
+
+  .car {
+    width: 220px;
+    margin-top: -44px;
+  }
+
+  .stats {
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .stat {
+    width: 46%;
+  }
+
+  .value {
+    font-size: 36px;
+  }
+
+  .text {
+    font-size: 12px;
+  }
 }
